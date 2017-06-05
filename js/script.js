@@ -15,3 +15,16 @@ function addContent() {
     }
   }
 }
+
+function fibonacci() {
+  var input = document.getElementById('value').value;
+  var i = 2;
+  var fib = [];
+  fib[0] = 0;
+  fib[1] = 1;
+  while(i<=input) {
+    fib[i] = fib[i-2] + fib[i-1];
+    document.getElementById('result').innerHTML += fib[i]+ ' ';
+    i++;
+  }
+}
