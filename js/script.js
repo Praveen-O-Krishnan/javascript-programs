@@ -28,3 +28,34 @@ function fibonacci() {
     i++;
   }
 }
+
+function isPrime() {
+  var input = document.getElementById('prime').value;
+  var prime;
+  if(isNaN(input)) {
+    alert('Please enter a numeric value!');
+  } else {
+    alert('its a numeric value!');
+  }
+}
+
+function validateEmail() {
+  var email = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var input = document.getElementById('email').value;
+  var emailCheckBx = document.getElementById('emailCheckbox').checked;
+  var result = email.test(input);
+  if(input === '') {
+    document.getElementById('errorBox').innerHTML = 'Field is empty! Please enter email?';
+    return false;
+  } else if(result === true) {
+      if(emailCheckBx === true) {
+        document.getElementById('submitEmail').submit();
+      } else {
+        document.getElementById('errorBox').innerHTML = 'Checkbox should be checked!';
+        return false;
+      }
+  } else {
+    document.getElementById('errorBox').innerHTML = 'Invalid Email';
+    return false;
+  }
+}
