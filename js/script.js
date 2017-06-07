@@ -34,8 +34,15 @@ function isPrime() {
   var prime;
   if(isNaN(input)) {
     alert('Please enter a numeric value!');
-  } else {
-    alert('its a numeric value!');
+  }
+
+  for(var i = 2; i < input; i++) {
+    if(input % i === 0) {
+      alert('Its not a prime number');
+      return false;
+    }
+    prime =  input !== 1;
+    alert('Its a prime number');
   }
 }
 
