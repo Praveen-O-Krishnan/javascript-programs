@@ -66,3 +66,60 @@ function validateEmail() {
     return false;
   }
 }
+
+function isVowels() {
+  var vwls = document.getElementById('vowels').value;
+  var vowelsReg = /[aeiou]/;
+  if(vwls === '') {
+    alert('Field cannot be empty');
+    return false;
+  }
+  if(isNaN(vwls)) {
+    var result = vowelsReg.test(vwls);
+    if(result === true) {
+      alert('Vowels are there in the string');
+    } else {
+      alert('No Vowels there in the string');
+    }
+  } else {
+    alert('Please enter a proper text!');
+    document.getElementById('vowels').value = '';
+    return false;
+  }
+}
+
+// $("#submitEmail").submit(function(e) {
+// var emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//       var actionurl = e.currentTarget.action;
+//       var email = $('#email').val();
+//       var result = emailValidation.test(email);
+//       var emailCheckBx = document.getElementById('sozlesme').checked;
+//       if(email === "") {
+//         alert('Field is empty! Please enter email?');
+//         return false;
+//       } else if(result === true) {
+//           if(emailCheckBx === true) {
+//               $.ajax({
+//                   url: actionurl,
+//                   type: 'GET',
+//                   data : { text : email},
+//                   success: function(data) {
+//                    alert(data);
+//                       if(data) {
+//                        alert("You were already subscribed");
+//                       } else {
+//                        alert("You are subscribed to Newsletter");
+//                       }
+//                   }
+//                 });
+//           } else {
+//             alert('Checkbox should be checked!');
+//             return false;
+//           }
+//       } else {
+//         alert('Invalid Email');
+//         return false;
+//       }
+//      //prevent Default functionality
+//       e.preventDefault();
+//   });
