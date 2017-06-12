@@ -123,3 +123,27 @@ function isVowels() {
 //      //prevent Default functionality
 //       e.preventDefault();
 //   });
+
+function todolist() {
+  var addBtn = document.getElementById('addTaskBtn');
+  var i = 0;
+  //var delBtn = document.getElementsByClassName('js-delete');
+  addBtn.addEventListener('click', function() {
+    var input = document.getElementById('inputTask').value;
+    var result;
+    if(input === '') {
+      document.getElementById('error').style.display = 'block';
+      document.getElementById('error').innerHTML = 'Please enter a task';
+    } else {
+      i++;
+      document.getElementById('tasks').innerHTML += '<li class="task" id="task"><input type="checkbox" name="" value="">'+input+'<img id="abcd_'+i+'" src="img/delete_icon.png" alt="delete" onclick="deleteTodoList(this.id)"></li>';
+      document.getElementById('inputTask').value = '';
+      document.getElementById('error').style.display = 'none';
+    }
+  });
+}
+
+function deleteTodoList(clicked_id) {
+  var elem = document.getElementById(clicked_id);
+  elem.parentNode.remove(elem);
+}

@@ -5,14 +5,19 @@
     <title>Todo List</title>
     <link rel="stylesheet" href="dist/css/style.css">
   </head>
-  <body>
+  <body onload="todolist()">
   <header class="todo-header">
     <h1>TodoList</h1>
   </header>
   <div class="todo-box">
+    <div id="error" class="error"></div>
     <div class="task-header" id="taskHdr">
       <input type="text" name="" value="" id="inputTask" placeholder="Enter a task">
       <button type="button" name="button" id="addTaskBtn">Add</button>
+    </div>
+    <div class="task-body">
+      <ul id="tasks">
+      </ul>
     </div>
   </div>
   <script type="text/javascript" src="js/script.js"></script>

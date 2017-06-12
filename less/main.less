@@ -1,7 +1,11 @@
 // Variables
 @gray:  #313e50;
+@light-gray: #e6e6e6;
 @white:  #ffffff;
 @blue:   #595990;
+@input-blue-bg: #00ccea;
+@btn-blue-bg: #0e616d;
+@red: #ff0000;
 
 body {
   font-family: Helvetica, Sans-Serif;
@@ -32,17 +36,36 @@ table {
 .todo-box {
   width: 400px;
   margin: 30px auto 0;
-  border: 1px solid @blue;
 
   & .task-header {
     & input {
       float: left;
-      width: 90%;
+      width: 85%;
+      font-size: 16px;
+      background: @input-blue-bg;
+      padding: 10px;
+      border: none;
+      color: @white;
+      outline: none;
+      height: 18px;
+      line-height: 18px;
+
+      &::-webkit-input-placeholder {
+        color: @white;
+      }
     }
 
     & button {
-      width: 9%;
+      width: 10%;
       float: right;
+      background: @btn-blue-bg;
+      padding: 5px;
+      border: none;
+      font-size: 14px;
+      font-weight: bold;
+      color: @white;
+      height: 38px;
+      outline: none;
     }
 
     &:before,
@@ -52,4 +75,37 @@ table {
       content: "";
     }
   }
+}
+
+.task-body {
+  & ul {
+    margin: 0;
+    padding: 0;
+  }
+  & .task {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid @light-gray;
+
+    & img {
+      float: right;
+    }
+
+    & input {
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+
+#error {
+  display: none;
+}
+
+.error {
+  background: @red;
+  color: @white;
+  padding: 5px;
+  margin-bottom: 3px;
 }
