@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+	<title>Simple layout</title>
+	<link href="styles.css" rel="stylesheet">
+	<script type="text/template" id="data">
+	{
+		"home":	{
+			"title":"Welcome to home page","content":"welcome to the webpage."
+		},
+		"about": {
+			"title":"we are a venture funding firm","content":"Lets work together to achieve ideas and profits"
+		},
+		"contact": {
+			"title":"Below is the address to get in touch","content": "<div>Street no 10</div><div>Domlur</div><div> Bangalore</div><div> Pin 560037</div>"
+		},
+		"recent": {
+			"title":"Welcome to the news section","newsArray":[{"title":"we are live on October","news": "The website is live on feb"},{"title":"UI courses launched","news": "we have introduced a UI course live now"}]
+		}
+	}
+	</script>
+
+</head>
+<body onload="initJsonData()">
+	<div class="wrapper">
+		<div class="banner">
+			<img  width = "960px" height = "200px"  src= "images/banner.jpg"/>
+			<h2> A simple layout using css and html</h2>
+		</div>
+		<div id="main" class="spa-content">
+
+		</div>
+		<div class="menu">
+			<h2>Side Menu</h2>
+			<ul>
+				<li><a href="#" id = "home">Home </a></li>
+				<li><a href="#" id = "about">About Us<a></li>
+				<li><a href="#" id = "contact">Contact Us</a></li>
+				<li><a href="#" id = "recent">Recent News</a></li>
+			</ul>
+		</div>
+		<div class="copyright">
+			<p>Copyright 2010, Somecompny</p>
+		</div>
+	</div>
+
+	<!--  you should write all the application code in the app.js file  -->
+	<script src="app.js"></script>
+</body>
+</html>
