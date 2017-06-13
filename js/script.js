@@ -127,7 +127,6 @@ function isVowels() {
 function todolist() {
   var addBtn = document.getElementById('addTaskBtn');
   var i = 0;
-  //var delBtn = document.getElementsByClassName('js-delete');
   addBtn.addEventListener('click', function() {
     var input = document.getElementById('inputTask').value;
     var result;
