@@ -135,7 +135,7 @@ function todolist() {
       document.getElementById('error').innerHTML = 'Please enter a task';
     } else {
       i++;
-      document.getElementById('tasks').innerHTML += '<li class="task" id="task"><input type="checkbox" name="" value="">'+input+'<img id="abcd_'+i+'" src="img/delete_icon.png" alt="delete" onclick="deleteTodoList(this.id)"></li>';
+      document.getElementById('tasks').innerHTML += '<li class="task" id="task"><input type="checkbox" name="" value=""><span class="text-field" id="textfld_'+i+'">'+input+'</span><img id="del_'+i+'" src="img/delete_icon.png" alt="delete" onclick="deleteTodoList(this.id)"> <img id="edit_'+i+'" src="img/edit_icon.png" alt="edit" onclick="editTodoList(this.id)"></li>';
       document.getElementById('inputTask').value = '';
       document.getElementById('error').style.display = 'none';
     }
@@ -146,3 +146,80 @@ function deleteTodoList(clicked_id) {
   var elem = document.getElementById(clicked_id);
   elem.parentNode.remove(elem);
 }
+
+function editTodoList(edit_id) {
+  var elem = document.getElementById(edit_id);
+  var count = edit_id.substr(edit_id.indexOf('_')+1);
+  var input = document.createElement('input');
+  input.setAttribute('type', 'text');
+  input.setAttribute('value', elem.parentNode.textContent);
+  input.setAttribute('onkeypress','saveEdit(event, this.id)');
+  input.setAttribute('id','editTxt_'+count);
+  var editField = document.getElementById('textfld_'+count);
+  document.getElementById('textfld_'+count).innerHTML = '';
+  editField.appendChild(input);
+}
+
+function saveEdit(e,id){
+ var key = e.keyCode || e.which;
+  if (key==13){
+     var txtFldId = document.getElementById(id).value;
+     var i = id.substr(id.indexOf('_')+1);
+     document.getElementById('textfld_'+i).innerHTML = txtFldId;
+  }
+}
+
+
+function getMovieTitles() {
+  var title = new XMLHttpRequest();
+  title.open('GET', 'json/movies.json');
+  title.onload = function() {
+    var ourData = JSON.parse(title.responseText);
+      var formOutput = '<form>';
+      formOutput += '<select id="movie_select" class="movie-list" onchange="movieSelect()" >';
+      formOutput += '<option value="">--- Select Movies ---</option>';
+      for(var i = 0; i < ourData.movies.length; i++) {
+        formOutput += '<option value="'+i+'">'+ourData.movies[i].title+'</option>';
+      }
+      formOutput += '</select>';
+			formOutput += '</form>';
+      document.getElementById('movieTitle').innerHTML = formOutput;
+  };
+  title.send();
+}
+
+function movieSelect() {
+  var selectBox = document.getElementById('movie_select');
+  var movieIndex = selectBox.options[selectBox.selectedIndex].value;
+  getMovieInfo(movieIndex);
+  //console.log(movieIndex);
+}
+
+function getMovieInfo(index) {
+  var movieInfo = new XMLHttpRequest();
+  movieInfo.open('GET','json/movies.json');
+  movieInfo.onload = function() {
+    var movieInfoData = JSON.parse(movieInfo.responseText);
+    console.log(movieInfoData.movies[0].title);
+    var output = '<ul>';
+      output += '<li>Year: '+movieInfoData.movies[index].year+'</li>';
+      output += '<li>Genre: '+movieInfoData.movies[index].genre+'</li>';
+      output += '<li>Director: '+movieInfoData.movies[index].director+'</li>';
+      output += '</ul>';
+      document.getElementById('movieInfo').innerHTML = output;
+  };
+  movieInfo.send();
+}
+
+
+// function renderMovieName(data) {
+//   var htmlString = '';
+//   for(var i = 0; i < data.length; i++) {
+//     console.log(i);
+//     //htmlString += '<div>'+data[i].title+'</div>';
+//   }
+//
+//   movieTitle.insertAdjacentHTML('beforeend', htmlString);
+// }
+//
+// renderMovieName();

@@ -6,6 +6,7 @@
 @input-blue-bg: #00ccea;
 @btn-blue-bg: #0e616d;
 @red: #ff0000;
+@gold: #ffd700;
 
 body {
   font-family: Helvetica, Sans-Serif;
@@ -90,6 +91,8 @@ table {
 
     & img {
       float: right;
+      margin-left: 5px;
+      cursor: pointer;
     }
 
     & input {
@@ -108,4 +111,48 @@ table {
   color: @white;
   padding: 5px;
   margin-bottom: 3px;
+}
+
+.movie-bg {
+  height: 100%;
+  background: @gold;
+}
+
+.movie-container {
+  padding: 30px;
+
+  & .movie-hdr {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  & .movie-details {
+    width: 500px;
+    margin: 30px auto 0;
+    padding: 10px;
+    border: 1px solid @gray;
+    border-radius: 3px;
+  }
+
+  & .movie-list {
+    padding: 5px 10px;
+    border: none;
+    font-size: 14px;
+  }
+
+  & .movie-info {
+
+    & ul,
+    & li {
+      padding: 0;
+      margin: 0;
+    }
+
+    & li {
+      list-style: none;
+      margin-top: 10px;
+    }
+  }
 }
