@@ -148,6 +148,7 @@ function deleteTodoList(clicked_id) {
 }
 
 function editTodoList(edit_id) {
+  alert('Enter after edit the text..');
   var elem = document.getElementById(edit_id);
   var count = edit_id.substr(edit_id.indexOf('_')+1);
   var input = document.createElement('input');
@@ -165,7 +166,12 @@ function saveEdit(e,id){
   if (key==13){
      var txtFldId = document.getElementById(id).value;
      var i = id.substr(id.indexOf('_')+1);
-     document.getElementById('textfld_'+i).innerHTML = txtFldId;
+     if(txtFldId !== '') {
+        document.getElementById('textfld_'+i).innerHTML = txtFldId;
+     } else {
+       alert('Field is empty!');
+       return false;
+     }
   }
 }
 
