@@ -129,7 +129,6 @@ function todolist() {
   var i = 0;
   addBtn.addEventListener('click', function() {
     var input = document.getElementById('inputTask').value;
-    var result;
     if(input === '') {
       document.getElementById('error').style.display = 'block';
       document.getElementById('error').innerHTML = 'Please enter a task';
@@ -181,7 +180,7 @@ function getMovieTitles() {
   title.open('GET', 'json/movies.json');
   title.onload = function() {
     var ourData = JSON.parse(title.responseText);
-      var formOutput = '<form>';
+      var formOutput = '<form class="movie-title">';
       formOutput += '<select id="movie_select" class="movie-list" onchange="movieSelect()" >';
       formOutput += '<option value="">--- Select Movies ---</option>';
       for(var i = 0; i < ourData.movies.length; i++) {
@@ -198,7 +197,6 @@ function movieSelect() {
   var selectBox = document.getElementById('movie_select');
   var movieIndex = selectBox.options[selectBox.selectedIndex].value;
   getMovieInfo(movieIndex);
-  //console.log(movieIndex);
 }
 
 function getMovieInfo(index) {
@@ -206,26 +204,16 @@ function getMovieInfo(index) {
   movieInfo.open('GET','json/movies.json');
   movieInfo.onload = function() {
     var movieInfoData = JSON.parse(movieInfo.responseText);
-    console.log(movieInfoData.movies[0].title);
     var output = '<ul>';
       output += '<li>Year: '+movieInfoData.movies[index].year+'</li>';
       output += '<li>Genre: '+movieInfoData.movies[index].genre+'</li>';
       output += '<li>Director: '+movieInfoData.movies[index].director+'</li>';
       output += '</ul>';
       document.getElementById('movieInfo').innerHTML = output;
+
+    var imgThmb = '';
+    imgThmb += '<img src="'+movieInfoData.movies[index].thumb+'">';
+    document.getElementById('movieThumb').innerHTML = imgThmb;
   };
   movieInfo.send();
 }
-
-
-// function renderMovieName(data) {
-//   var htmlString = '';
-//   for(var i = 0; i < data.length; i++) {
-//     console.log(i);
-//     //htmlString += '<div>'+data[i].title+'</div>';
-//   }
-//
-//   movieTitle.insertAdjacentHTML('beforeend', htmlString);
-// }
-//
-// renderMovieName();
