@@ -1,34 +1,53 @@
 {
     "movies": [
         {
-            "title": "The Godfather",
-            "year": "1972",
+            "title": "Bahubali 2",
+            "year": "2017",
             "genre": "Drama",
-            "director": "Francis Ford Copolla"
+            "director": "S S Rajamouli",
+            "thumb": "img/movie_thumb/bahubali.jpg"
         },
         {
-            "title": "Superbad",
-            "year": "2007",
-            "genre": "Comedy",
-            "director": "Greg Mottola"
+            "title": "Pulimurugan",
+            "year": "2015",
+            "genre": "Thriller",
+            "director": "Vaishakh",
+            "thumb": "img/movie_thumb/pulimurugan.jpg"
         },
         {
-            "title": "The Departed",
-            "year": "2006",
+            "title": "Bangalore Days",
+            "year": "2014",
             "genre": "Drama",
-            "director": "Martin Scorsese"
+            "director": "Anjali Menon",
+            "thumb": "img/movie_thumb/bangalore-days.jpg"
         },
         {
-            "title": "Saving Private Ryan",
-            "year": "1998",
-            "genre": "Action",
-            "director": "Steven Spielberg"
+            "title": "Udayananu Tharam",
+            "year": "2005",
+            "genre": "Drama",
+            "director": "Roshan Andrews",
+            "thumb": "img/movie_thumb/Udayananu_Tharam.jpg"
         },
         {
-            "title": "The Expendables",
-            "year": "2010",
+            "title": "Devasuram",
+            "year": "1993",
             "genre": "Action",
-            "director": "Sylvester Stallone"
+            "director": "I V Sasi",
+            "thumb": "img/movie_thumb/devasuram.jpg"
+        },
+        {
+            "title": "Memories",
+            "year": "2013",
+            "genre": "Thriller",
+            "director": "Jeethu Joseph",
+            "thumb": "img/movie_thumb/memories-mal.jpg"
+        },
+        {
+            "title": "Left Right Left",
+            "year": "2013",
+            "genre": "Drama",
+            "director": "Arun Kumar",
+            "thumb": "img/movie_thumb/left-right-left-mal.jpg"
         }
     ]
 }

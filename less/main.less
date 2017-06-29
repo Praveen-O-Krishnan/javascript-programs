@@ -106,7 +106,8 @@ table {
   }
 }
 
-#error {
+#error,
+#errorFormBox {
   display: none;
 }
 
@@ -138,6 +139,36 @@ table {
     padding: 10px;
     border: 1px solid @gray;
     border-radius: 3px;
+
+    & .movie-head {
+
+      & .movie-title {
+        float: left;
+      }
+
+      & .add-movie {
+        float: right;
+
+        & button {
+          width: 100px;
+          margin: 5px;
+          padding: 10px;
+          background: @blue;
+          border: none;
+          font-size: 14px;
+          color: @white;
+          cursor: pointer;
+          outline: none;
+        }
+      }
+
+      &:before,
+      &:after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+    }
   }
 
   & .movie-list {
@@ -146,17 +177,94 @@ table {
     font-size: 14px;
   }
 
-  & .movie-info {
+  & .movies {
+    margin-top: 20px;
 
-    & ul,
-    & li {
-      padding: 0;
-      margin: 0;
+    & .movie-info {
+      float: left;
+      width: 45%;
+
+      & ul,
+      & li {
+        padding: 0;
+        margin: 0;
+      }
+
+      & li {
+        list-style: none;
+        margin-top: 10px;
+      }
     }
 
-    & li {
-      list-style: none;
-      margin-top: 10px;
+    & .movie-thumb {
+      float: right;
+      width: 55%;
+
+      & img {
+        max-width: 100%;
+      }
+    }
+
+    &:before,
+    &:after {
+      display: table;
+      clear: both;
+      content: "";
     }
   }
+}
+
+.add-movie-form {
+  margin: 15px auto 0;
+
+  & h1 {
+    font-size: 18px;
+    color: @gold;
+    margin: 0;
+  }
+
+  & .mandatory-txt {
+    font-size: 12px;
+    color: @gray;
+  }
+}
+
+
+/******* modal styles *****/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }

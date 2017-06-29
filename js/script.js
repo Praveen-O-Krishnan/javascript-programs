@@ -176,6 +176,7 @@ function saveEdit(e,id){
 
 
 function getMovieTitles() {
+  movieArr = [];
   var title = new XMLHttpRequest();
   title.open('GET', 'json/movies.json');
   title.onload = function() {
@@ -191,6 +192,11 @@ function getMovieTitles() {
       document.getElementById('movieTitle').innerHTML = formOutput;
   };
   title.send();
+
+  // if(localStorage.movieRecord) {
+  //   movieArr = JSON.parse(localStorage.movieRecord);
+  //   console.log(movieArr);
+  // }
 }
 
 function movieSelect() {
@@ -216,4 +222,69 @@ function getMovieInfo(index) {
     document.getElementById('movieThumb').innerHTML = imgThmb;
   };
   movieInfo.send();
+}
+
+function addMovie() {
+  var modal = document.getElementById('myModal');
+  var span = document.getElementsByClassName('close')[0];
+  modal.style.display = "block";
+
+  span.onclick = function() {
+      modal.style.display = 'none';
+  };
+
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  };
+}
+
+
+function validateMovie(form) {
+  var movieName = document.getElementById('movieName').value;
+  var movieYr = document.getElementById('movieYear').value;
+  var movieGenre = document.getElementById('movieGenre').value;
+  var movieDirector = document.getElementById('movieDirector').value;
+
+  // if(movieName === "" || movieYr ==="" || movieGenre ==="" || movieDirector === "") {
+  //   document.getElementById('errorFormBox').style.display = 'block';
+  //   document.getElementById('errorFormBox').innerHTML = 'One of the fields are empty, please enter!';
+  //   return false;
+  // }
+  if(movieName !== '') {
+    var json = {
+      'title': movieName,
+      'year': movieYr,
+      'genre': movieGenre,
+      'director': movieDirector
+    };
+    movieArr.push(json);
+    var resultString = JSON.stringify(movieArr);
+    //console.log(localStorage.movieRecord);
+    fs.writeFile('json/movies.json', resultString, 'utf8', callback);
+
+    fs.readFile('json/movies.json', 'utf8', function readFileCallback(err, data){
+    if (err){
+        console.log(err);
+    } else {
+    obj = JSON.parse(data); //now it an object
+    obj.table.push({id: 2, square:3}); //add some data
+    json = JSON.stringify(obj); //convert it back to json
+    fs.writeFile('json/movies.json', json, 'utf8', callback); // write it back
+}});
+
+    // fs.readFile('json/movies.json', 'utf8', function readFileCallback(err, data){
+    // if (err){
+    //     console.log(err);
+    // } else {
+    // obj = JSON.parse(data); //now it an object
+    // obj.table.push({id: 2, square:3}); //add some data
+    // json = JSON.stringify(obj); //convert it back to json
+    // fs.writeFile('json/movies.json', json, 'utf8', callback); // write it back
+    // }});
+    //var htmll = JSON.stringify(json);
+    //document.getElementById('output').innerHTML = htmll;
+    return false;
+  }
 }

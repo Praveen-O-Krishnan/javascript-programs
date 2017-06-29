@@ -9,14 +9,55 @@
   <div class="movie-container">
     <h1 class="movie-hdr">Favourite Movies</h1>
     <div class="movie-details">
-      <div id="movieTitle">
+      <div class="movie-head">
+        <div id="movieTitle">
 
+        </div>
+        <div class="add-movie">
+          <button type="button" name="button" id="addMovie" onclick="addMovie()">Add Movie</button>
+        </div>
       </div>
-      <div id="movieInfo" class="movie-info">
 
+      <div class="movies">
+        <div id="movieInfo" class="movie-info">
+
+        </div>
+        <div id="movieThumb" class="movie-thumb">
+
+        </div>
       </div>
     </div>
   </div>
+
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content add-movie-form">
+    <span class="close">&times;</span>
+    <h1>Add Movie</h1>
+    <span class="mandatory-txt">All fields are mandatory</span>
+    <div id="errorFormBox" class="error"></div>
+    <form action="" class="add-movie-form" onsubmit="return validateMovie(this);">
+      <label for="movieName">Movie Name: </label> <input type="text" name="moviename" id="movieName" value="">
+      <br>
+      <label for="movieYear">Year: </label> <input type="text" name="movieyear" value="" id="movieYear">
+      <br>
+      <label for="movieGenre">Genre: </label> <input type="text" name="moviegenre" value="" id="movieGenre">
+      <br>
+      <label for="movieDirector">Director: </label> <input type="text" name="moviedirector" value="" id="movieDirector">
+      <br>
+      <label for="movieThumb">Thumbnail: </label> <input type="file" name="moviethumb" value="" id="movieThumb">
+      <br>
+      <input type="submit" class="movie-submit-btn" value="Submit">
+    </form>
+
+    <div id="output">
+
+    </div>
+  </div>
+</div>
   <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
