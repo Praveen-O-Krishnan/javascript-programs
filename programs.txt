@@ -1,0 +1,4 @@
+create a function called a calculator(operation)
+operation, add - subtract - multiply - divide
+use a switch statement for operation to perform the operation over two values
+// hint - use closure
