@@ -288,3 +288,40 @@ function validateMovie(form) {
     return false;
   }
 }
+
+function valEmployeeReg() {
+   var fields = ['empID', 'empName', 'dob', 'age', 'address', 'contact', 'areaOfInterest', 'yrsOfExp', 'qualification'];
+   var dobPattern =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+
+   for(var i = 0; i<fields.length; i++) {
+     if(document.getElementById(fields[i]).value === '') {
+       alert('please enter empty fields');
+       return false;
+     }
+   }
+
+   if(isNaN(document.getElementById('empID').value)) {
+     alert('Enter a numeric value!');
+     return false;
+   }
+
+   if(!isNaN(document.getElementById('empName').value)) {
+     alert('Name cannot be numeric!');
+     return false;
+   }
+
+   if(dobPattern.test(document.getElementById('dob').value) !== true) {
+     alert('Date formate is wrong, please follow the example in the field');
+     return false;
+   }
+
+   if((frm1.gender[0].checked === false) && (frm1.gender[1].checked === false )) {
+     alert ('Please choose your Gender: Male or Female');
+     return false;
+   }
+
+   if(isNaN(document.getElementById('age').value)) {
+     alert('Enter a numeric value!');
+     return false;
+   }
+}
