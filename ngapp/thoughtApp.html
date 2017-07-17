@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thought App</title>
+    <link rel="stylesheet" href="../dist/css/style.css">
+  </head>
+  <body ng-app="thoughtApp">
+
+  <div class="thought-app" ng-controller="thoughtAppCntrl as ob">
+    <textarea name="name" rows="8" cols="80" ng-model="ob.thought"></textarea>
+    <br>
+    <button type="button" name="button" ng-click="ob.addThought();">Add Thought</button>
+    <ul>
+        <li ng-repeat="thght in ob.thoughtArray">{{ thght }}</li>
+    </ul>
+    <br>
+  </div>
+
+  <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="../js/vendor/ngStorage.js"></script>
+  <script type="text/javascript" src="../js/scriptAngular.js"></script>
+  </body>
+</html>
