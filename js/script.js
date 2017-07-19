@@ -326,7 +326,6 @@ function valEmployeeReg() {
    }
 }
 
-
 function giveArrCount() {
   var count = document.getElementById('arrayCount').value;
   var trigger;
@@ -338,9 +337,24 @@ function giveArrCount() {
 
   while(i <= count) {
     trigger = prompt("Enter value", count);
+    triggerNum = parseInt(trigger);
     i++;
-    input.push(trigger);
-    console.log(input);
+    input.push(triggerNum);
   }
+  var result = arraySummation(input);
+  var resultClass = document.getElementById('ArrayResult');
+  resultClass.className = 'result';
+  arrayDetail.className = 'result';
+  document.getElementById('arrayDetail').innerHTML = 'Array: '+ input;
+  document.getElementById('ArrayResult').innerHTML = 'Result: '+ result;
+  document.getElementById('arrayCount').value = '';
+}
 
+function arraySummation(input) {
+    var output;
+     output = 0;
+     for(var i =0; i<input.length; i++) {
+       output += input[i];
+     }
+    return output;
 }
