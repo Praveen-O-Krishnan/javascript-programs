@@ -325,3 +325,22 @@ function valEmployeeReg() {
      return false;
    }
 }
+
+
+function giveArrCount() {
+  var count = document.getElementById('arrayCount').value;
+  var trigger;
+  var i = 1;
+  var input = [];
+  if(isNaN(count)) {
+    alert('Please enter numeric value!');
+  }
+
+  while(i <= count) {
+    trigger = prompt("Enter value", count);
+    i++;
+    input.push(trigger);
+    console.log(input);
+  }
+
+}
