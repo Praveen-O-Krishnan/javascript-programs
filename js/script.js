@@ -390,3 +390,67 @@ function capitl2nd() {
   var result = valToArr[1].toString().toUpperCase();
   document.getElementById("result").innerHTML = result;
 }
+
+function makeMulTable() {
+  var value = document.getElementById("getNum").value;
+  for (var i = 1; i <= 10; i++) {
+    console.log(i + " " + value + " " + i * value);
+  }
+}
+
+function calcuator(operation) {
+	var val = function(a,b) {
+		switch(operation) {
+            case '1' :
+			return a + b;
+			//break;
+
+			case '2' :
+			return a * b;
+			//break;
+
+			case '3' :
+			return a - b;
+			//break;
+
+			case '4' :
+			return a / b;
+			//break;
+
+            default:
+			return 'invaid input';
+		}
+	};	
+	
+	return val;
+}
+
+function calculateOperation(a, v1, v2) {
+	var selectedOperation = calcuator(a);
+	var result = selectedOperation(v1, v2);
+	document.getElementById('whichOperationResult').style.display = "block";
+	document.getElementById('whichOperationResult').innerHTML = 'You selected operation ' + a + ' and value entered ' + v1 + ' , ' + v2 +  ' and result is ' + result;
+}
+
+
+function whichOperation() {
+	var num = document.querySelector('.js-selectedCalNumber').value;
+	if(!isNaN(num)) {
+		if(num > 4 || num < 1) {
+			alert('wrong selection');
+			document.querySelector('.js-selectedCalNumber').value = '';
+		} else {
+			var inpuVal = document.querySelector('.js-inputValues');
+			var val1 = prompt('First number', '');
+			var val2 = prompt('Second number', '');
+			var val_1 = parseInt(val1);
+			var val_2 = parseInt(val2);
+			calculateOperation(num, val_1, val_2);
+		}
+		
+	} else {
+		alert('Plese enter numeric value!');
+		document.querySelector('.js-selectedCalNumber').value = '';
+		return false;
+	}
+}

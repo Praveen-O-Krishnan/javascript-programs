@@ -1,8 +1,8 @@
 // Variables
-@gray:  #313e50;
+@gray: #313e50;
 @light-gray: #e6e6e6;
-@white:  #ffffff;
-@blue:   #595990;
+@white: #ffffff;
+@blue: #595990;
 @input-blue-bg: #00ccea;
 @btn-blue-bg: #0e616d;
 @red: #ff0000;
@@ -141,7 +141,6 @@ table {
     border-radius: 3px;
 
     & .movie-head {
-
       & .movie-title {
         float: left;
       }
@@ -229,44 +228,43 @@ table {
   }
 }
 
-
 /******* modal styles *****/
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
 }
 
 /* The Close Button */
 .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .form-header {
@@ -342,3 +340,26 @@ table {
     padding: 20px;
   }
 }
+
+.multipl-table {
+  margin: 2%;
+
+  & .multipl-table-input {
+    width: 30px;
+    text-align: center;
+    border: 1px solid @gray;
+  }
+}
+
+.calc-using-closure {
+	margin: 2%;
+	
+	& .result {
+		display: none;
+		width: 95%;
+		border: 1px solid cyan;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+}
+
