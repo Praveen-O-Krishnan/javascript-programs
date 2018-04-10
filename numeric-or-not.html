@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Check whether a variable is numeric or not</title>
+  </head>
+  <body>
+  
+  <h1>numeric or not</h1>
+  <h4>Look console for the result</h4>
+    
+  <script type="text/javascript">
+	let isNumeric = (num) => {
+		return !isNaN(parseFloat(num)) && isFinite(num);
+	}
+	
+	console.log(isNumeric(12));
+	console.log(isNumeric('abcd'));
+	console.log(isNumeric('12'));
+	console.log(isNumeric(' '));
+	console.log(isNumeric(1.20));
+	console.log(isNumeric(-200));
+  </script>
+  </body>
+</html>  

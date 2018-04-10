@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Check whether a value is an integer or not</title>
+  </head>
+  <body>
+  
+  <h1>integer or not</h1>
+  <h4>Look console for the result</h4>
+    
+  <script type="text/javascript">
+	let isInt = (num) => {
+		if(typeof num !== 'number') {
+			return false;
+		} 
+		
+		return !isNaN(num) && parseInt(Number(num)) == num && !isNaN(parseInt(num, 10));
+	}
+	
+	console.log(isInt(23));
+	console.log(isInt(4e2));
+	console.log(isInt(NaN));
+	console.log(isInt(23.75));
+	console.log(isInt(-23));
+  </script>
+  </body>
+</html>  

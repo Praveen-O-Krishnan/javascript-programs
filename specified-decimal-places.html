@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>format a number up to specified decimal places</title>
+  </head>
+  <body>
+  
+  <h1>specified decimal places</h1>
+  <h4>Look console for the result</h4>
+    
+  <script type="text/javascript">
+	let decimals = (n, d) => {
+		if((typeof n !== 'number') || (typeof d !== 'number')) {
+			return false;
+		}
+		
+		n = parseFloat(n) || 0;
+		
+		return n.toFixed(d);
+	}
+	
+	console.log(decimals(2.100212, 2));
+	console.log(decimals(2.100212, 3));
+	console.log(decimals(2100, 2));
+
+  </script>
+  </body>
+</html>  
