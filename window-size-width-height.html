@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Window Size : height and width</title>
+  </head>
+  <body onload="getSize()" onresize="getSize()">
+	<div id="wh"> 
+		<!-- Place height and width size here! --> 
+	</div>
+    
+  <script type="text/javascript">
+		let getSize = () => {
+			let w = document.documentElement.clientWidth;
+			let h = document.documentElement.clientHeight;
+			
+			document.getElementById('wh').innerHTML = "<h1>Width: " + w + " and Height: " + h + "</h1>";
+		}
+  </script>
+  </body>
+</html>  

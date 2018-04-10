@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dropdown manipulation</title>
+  </head>
+  <body> 
+	<form>
+		<select id="colorSelect">
+			<option>Red</option>
+			<option>Green</option>
+			<option>White</option>
+			<option>Black</option>
+		</select>
+		<input type="button" onclick="removeColor()" value="Select and Remove">
+		<input type="button" onclick="addColor()" value="Add new color">
+	</form>  
+    
+  <script type="text/javascript">
+	const list = document.getElementById('colorSelect');
+	let removeColor = () => {
+		list.remove(list.selectedIndex);
+	}
+	
+	let addColor = () => {
+		let input = prompt('Enter color');
+		let option = document.createElement('option');
+		
+		if(input == null) {
+			return false;
+		}
+		
+		option.text = input;
+		list.add(option, 0);
+		alert(`"${input}" been added`);
+	}
+	
+	list.onchange = function() {
+		let val = this.value;
+		let bg = document.getElementsByTagName('body')[0];
+		bg.style.background = val;
+	}
+
+  </script>
+  </body>
+</html>  
