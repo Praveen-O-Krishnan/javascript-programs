@@ -446,6 +446,7 @@ function whichOperation() {
 			var val_1 = parseInt(val1);
 			var val_2 = parseInt(val2);
 			calculateOperation(num, val_1, val_2);
+			document.querySelector('.js-selectedCalNumber').value = '';
 		}
 		
 	} else {
@@ -454,3 +455,4 @@ function whichOperation() {
 		return false;
 	}
 }
+
