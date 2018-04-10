@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Javascript random function</title>
+  </head>
+  <body>
+  
+  <h1>Random integer</h1>
+  <h4>Look console for the result</h4>
+    
+  <script type="text/javascript">
+	let randomInteger = (min, max) => {
+		if(min == null && max == null) {
+			return 0;
+		}
+		
+		if(max == null) {
+			max = min;
+			min = 0;
+		}
+		
+		return min + Math.floor(Math.random() * (max - min + 1));
+	}
+	
+	 console.log(randomInteger(20,1));
+	 console.log(randomInteger(1,10));
+	 console.log(randomInteger(6));
+	 console.log(randomInteger());
+  </script>
+  </body>
+</html>  
