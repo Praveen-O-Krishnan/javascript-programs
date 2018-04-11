@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JavaScript program to list the properties of a JavaScript object</title>
+  </head>
+  <body>
+    
+  <script type="text/javascript">
+		let _keys = (obj) => {
+			if(!isObject(obj)) {
+				return [];
+			}
+			
+			if(Object.keys) {
+				return Object.keys(obj);
+			}
+			
+			let keys = [];
+			
+			for(var key in obj) {
+				if(_.has(obj, key)) {
+					keys.push(key);
+					return keys;
+				}
+			}
+			function isObject(obj) {
+					var type = typeof obj;
+					return type === 'function' || type === 'object' && !!obj;
+				  }
+		}
+	console.log(_keys({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"}));
+		
+  </script>
+  </body>
+</html>  

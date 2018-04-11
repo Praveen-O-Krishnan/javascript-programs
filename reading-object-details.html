@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Reading status of a book library</title>
+  </head>
+  <body>
+    
+  <script type="text/javascript">
+	let library = [{
+		title: 'Bill Gates',
+		author: 'The Road Ahead',
+		readingStatus: true
+    },
+    {
+        title: 'Steve Jobs',
+        author: 'Walter Isaacson',
+        readingStatus: true
+    },
+    {
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        author: 'Suzanne Collins',
+        readingStatus: false
+    }];
+	
+	for(let lib of library) {
+		let book = "'" + lib.title + "'" + ' by ' + lib.author + ".";
+		 
+		if(lib.readingStatus) {
+			console.log("Already read " + book);
+		} else {
+			console.log("You still need to read " + book);
+		}
+	}
+  </script>
+  </body>
+</html>  
